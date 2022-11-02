@@ -1,0 +1,41 @@
+package com.sgtesting.Threadsafe;
+class MyThread2 implements Runnable
+{
+	public void run()
+	{
+		displayEvenNumbers();
+	}
+	synchronized void displayEvenNumbers()
+	{
+		try
+		{
+			for(int i=20;i<=40;i++)
+			{
+				if (i%2==0)
+				{
+					Thread.sleep(1000);				
+					System.out.println(Thread.currentThread().getName()+ "EvenNumbers: "+i);
+				}
+			}
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+			
+	}
+}
+
+public class MultiThreadWithThreadSafe {
+
+	public static void main(String[] args) {
+		MyThread2 obj=new MyThread2();
+		Thread t1=new Thread(obj);
+		Thread t2=new Thread(obj);
+		t1.setName("Alpha");
+		t2.setName("Beta");
+		t1.start();
+		t2.start();
+
+	}
+
+}
