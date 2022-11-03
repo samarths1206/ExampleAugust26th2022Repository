@@ -1,4 +1,4 @@
-package com.sgtesting.Frames;
+package com.sgtesting.Frames1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
